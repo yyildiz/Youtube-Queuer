@@ -4,10 +4,11 @@ $(document).ready(function() {
     var object = {};
     var queue = [];
     object["queue"] = queue;
-
+    var link = $(this).closest(".yt-uix-menu-content").siblings().closest(".yt-uix-menu-container");
+    console.log(link)
     chrome.storage.sync.get(["queue"], function(queue) {
       chrome.storage.sync.set(object, function() {
-        console.log("Video added to queue");
+
       });
     });
   });

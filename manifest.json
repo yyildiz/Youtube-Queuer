@@ -12,7 +12,7 @@
         {
           "matches": ["http://www.youtube.com/*","https://www.youtube.com/*"],
           "js": ["thirdParty/jquery.min.js", "background.js"],
-          "css": ["queue-sidebar.css"]
+          "css": ["css/queue-sidebar.css"]
         }
     ],
     "permissions": [
