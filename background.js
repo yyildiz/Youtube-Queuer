@@ -1,13 +1,32 @@
-$(".yt-uix-button").click(function() {
+$(document).ready(function() {
+  addQueryButtons();
+  $(".queue-btn").on("click", function() {
+    var object = {};
+    var queue = [];
+    object["queue"] = queue;
+
+    chrome.storage.sync.get(["queue"], function(queue) {
+      chrome.storage.sync.set(object, function() {
+        console.log("Video added to queue");
+      });
+    });
+  });
+});
+
+function addQueryButtons() {
     var menu = $(".yt-ui-menu-item-label");
-    console.log(menu.find("li[role='menu-item']"))
-
+    var span = $("<span>");
     var button = $("<button>")
-    button.addClass("yt-ui-menu-item")
+
     button.addClass("yt-uix-menu-close-on-select")
-    button.addClass("dismiss-menu-choice")
+          .addClass("yt-ui-menu-item")
+          .addClass("dismiss-menu-choice")
+          .addClass("queue-btn");
 
-    button.text("Add to Queue");
-    menu.append(button);
+    span.addClass("yt-ui-menu-item-label");
+    span.text("Add to Queue");
+    span.appendTo(button);
 
-})
+    menu.parent().after(button);
+
+};

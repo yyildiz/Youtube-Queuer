@@ -11,7 +11,11 @@
     "content_scripts": [
         {
           "matches": ["http://www.youtube.com/*","https://www.youtube.com/*"],
-          "js": ["thirdParty/jquery.min.js", "background.js"]
+          "js": ["thirdParty/jquery.min.js", "background.js"],
+          "css": ["queue-sidebar.css"]
         }
+    ],
+    "permissions": [
+      "storage"
     ]
 }
