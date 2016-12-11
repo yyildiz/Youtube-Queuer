@@ -1,0 +1,17 @@
+{
+    "name": "Youtube Queuer",
+    "description": "Add any youtube video to a queue to watch in succssion",
+    "version": "1.0",
+    "manifest_version":2,
+    "browser_action": {
+      "default_icon": "list.png",
+      "default_popup": "extension.html"
+    },
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+    "content_scripts": [
+        {
+          "matches": ["http://www.youtube.com/*","https://www.youtube.com/*"],
+          "js": ["thirdParty/jquery.min.js", "background.js"]
+        }
+    ]
+}
