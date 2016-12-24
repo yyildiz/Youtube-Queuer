@@ -1,17 +1,23 @@
 {
-    "name": "Youtube Queuer",
-    "description": "Add any youtube video to a queue to watch in succssion",
-    "version": "1.0",
+    "name": "Youtube\u2122 Live Playlist",
+    "description": "Add any youtube video to a live playlist or queue to watch in succession after your current video.",
+    "version": "1.0.2",
     "manifest_version":2,
     "browser_action": {
-      "default_icon": "list.png",
+      "default_icon": "icons/32x32.png",
       "default_popup": "extension.html"
+    },
+    "icons": {
+      "32": "icons/32x32.png",
+      "64": "icons/64x64.png",
+      "128": "icons/128x128.png"
     },
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
     "content_scripts": [
         {
           "matches": ["http://www.youtube.com/*","https://www.youtube.com/*"],
-          "js": ["thirdParty/jquery.min.js", "content.js"]
+          "js": ["thirdParty/jquery.min.js", "content.js"],
+          "css": ["css/style.css"]
         }
     ],
     "background" : {
